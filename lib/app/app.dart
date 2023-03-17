@@ -13,6 +13,7 @@ import 'package:app/ui/views/quiz/quiz_view.dart';
 import 'package:app/ui/views/onboardingquiz/onboardingquiz_view.dart';
 import 'package:app/ui/views/scoreboard/scoreboard_view.dart';
 import 'package:app/ui/views/slider/slider_view.dart';
+import 'package:app/ui/bottom_sheets/checkanswer/checkanswer_sheet.dart';
 // @stacked-import
 
 @StackedApp(
@@ -38,7 +39,8 @@ import 'package:app/ui/views/slider/slider_view.dart';
   ],
   bottomsheets: [
     StackedBottomsheet(classType: NoticeSheet),
-    // @stacked-bottom-sheet
+    StackedBottomsheet(classType: CheckanswerSheet),
+// @stacked-bottom-sheet
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),
