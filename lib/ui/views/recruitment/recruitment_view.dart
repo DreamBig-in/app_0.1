@@ -2,6 +2,7 @@ import 'package:app/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../common/buttons.dart';
 import 'recruitment_viewmodel.dart';
 
 class RecruitmentView extends StackedView<RecruitmentViewModel> {
@@ -314,6 +315,9 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
             )
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        currentindex: 2,
       ),
     );
   }

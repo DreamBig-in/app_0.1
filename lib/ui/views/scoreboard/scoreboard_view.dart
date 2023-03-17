@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:app/file_exporter.dart';
 import 'package:app/ui/common/buttons.dart';
+import 'package:app/ui/common/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -54,11 +55,11 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
               thickness: 2,
             ),
             Container(
-                height: 500,
+                height: 450,
                 width: double.infinity,
                 color: scaffoldBackgroundColor,
                 child: ListView.builder(
-                    itemCount: 5,
+                    itemCount: scoreboard.length,
                     itemBuilder: ((context, index) => Padding(
                           padding: const EdgeInsets.all(0),
                           child: Column(
@@ -68,34 +69,40 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
                                 width: double.infinity,
                                 child: Row(
                                   children: [
-                                    horizontalSpaceTiny,
+                                    horizontalSpaceMedium,
                                     Text(
-                                      '1',
+                                      scoreboard[index]['number'].toString(),
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleLarge!
                                           .copyWith(color: Colors.white),
                                     ),
                                     horizontalSpaceTiny,
-                                    CircleAvatar(
-                                      radius: 30,
+                                    const CircleAvatar(
+                                      backgroundColor: Colors.white,
+                                      radius: 25,
+                                      child: Icon(
+                                        Icons.person,
+                                        size: 30,
+                                      ),
                                     ),
                                     horizontalSpaceTiny,
                                     Text(
-                                      "Pratik",
+                                      scoreboard[index]['name'].toString(),
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleLarge!
                                           .copyWith(color: Colors.white),
                                     ),
-                                    SizedBox(width: 100),
+                                    const SizedBox(width: 80),
                                     Text(
-                                      "100",
+                                      scoreboard[index]['score'].toString(),
                                       style: Theme.of(context)
                                           .textTheme
                                           .headline6!
                                           .copyWith(color: Colors.white),
                                     ),
+                                    horizontalSpaceTiny,
                                     Text(
                                       "points",
                                       style: Theme.of(context)
@@ -115,6 +122,9 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
                         ))))
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        currentindex: 1,
       ),
     );
   }

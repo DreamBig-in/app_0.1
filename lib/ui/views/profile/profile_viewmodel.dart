@@ -23,4 +23,20 @@ class ProfileViewModel extends BaseViewModel {
     print("navigate to recruitment screen");
     _navigationService.replaceWith(Routes.recruitmentView);
   }
+
+  void navigatetoProfile() {
+    _navigationService.replaceWith(Routes.profileView);
+  }
+
+  void navigatetoHome() {
+    _navigationService.replaceWithHomeView();
+  }
+
+  void navigatetoScore() {
+    _navigationService.replaceWith(Routes.scoreboardView);
+  }
+
+  void navigatetoJobs() {
+    _navigationService.replaceWith(Routes.recruitmentView);
+  }
 }

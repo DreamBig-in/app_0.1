@@ -1,5 +1,7 @@
 import 'package:app/enums/button_type.dart';
 import 'package:app/file_exporter.dart';
+import 'package:app/ui/views/home/home_view.dart';
+import 'package:app/ui/views/home/home_viewmodel.dart';
 
 class ReUsedBtn extends StatelessWidget {
   ReUsedBtn({
@@ -137,5 +139,56 @@ class BronzeIcon extends StatelessWidget {
             child: Icon(Icons.star, size: 50, color: Colors.white24),
           )),
     ]);
+  }
+}
+
+class BottomNavigationWidget extends StatefulWidget {
+  BottomNavigationWidget({super.key, required this.currentindex});
+
+  int currentindex = 0;
+
+  @override
+  State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
+}
+
+class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+        backgroundColor: scaffoldBackgroundColor,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: widget.currentindex,
+        items: [
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.home),
+                onPressed: () {
+                  HomeViewModel().navigatetoHome();
+                }),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.score),
+                onPressed: () => HomeViewModel().navigatetoScore()),
+            label: 'ScoreBoard',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.work),
+                onPressed: () {
+                  HomeViewModel().navigatetoJobs();
+                }),
+            label: 'Jobs',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.person),
+                onPressed: () {
+                  HomeViewModel().navigatetoProfile();
+                }),
+            label: 'Profile',
+          ),
+        ]);
   }
 }

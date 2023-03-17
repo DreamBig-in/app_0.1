@@ -297,3 +297,31 @@ const List<Map<String, dynamic>> flutter_unit2 = [
     ],
   },
 ];
+
+const List<Map<String, dynamic>> scoreboard = [
+  {
+    'number': 1,
+    'name': 'Pratik',
+    'score': 100,
+  },
+  {
+    'number': 2,
+    'name': 'Piyush',
+    'score': 90,
+  },
+  {
+    'number': 3,
+    'name': 'David',
+    'score': 85,
+  },
+  {
+    'number': 4,
+    'name': 'Rahul',
+    'score': 70,
+  },
+  {
+    'number': 5,
+    'name': 'Rohan',
+    'score': 50,
+  },
+];
