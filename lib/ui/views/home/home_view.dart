@@ -92,13 +92,14 @@ class HomeView extends StackedView<HomeViewModel> {
                 return ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: homeviewResponse[mainindex].length + 1,
+                  itemCount: homeviewResponse[mainindex]["chapterCount"] + 1,
                   itemBuilder: (context, index) {
                     return index == 0
                         ? Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 17),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 17, vertical: 15),
                             margin: const EdgeInsets.symmetric(vertical: 1),
-                            height: 100,
+                            // height: 100,
                             decoration:
                                 BoxDecoration(color: appBarBackgroundColor),
                             child: Row(

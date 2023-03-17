@@ -4,13 +4,15 @@ import 'package:app/ui/views/login/login_viewmodel.dart';
 const List<Map<String, dynamic>> homeviewResponse = [
   {
     "unit": "1",
-    "unitName": "Learn the basics of Dart",
-    "chapterCount": 5,
+    "unitName":
+        """Learn about widgets, their lifecycle, and how to build custom widgets. Understand the widget tree and how to manage the layout and positioning of widgets.""",
+    "chapterCount": 4,
     "progress": {"chapter_name 1": true, "chapter_name 2": false},
   },
   {
-    "unit": "1",
-    "unitName": "Setup development environment",
+    "unit": "2",
+    "unitName":
+        "Learn about different types of input widgets, such as TextField, DropdownButton, and Checkbox.Understand the role of TextEditingController and how it can be used to read and manipulate user input.",
     "chapterCount": 5,
     "progress": {"chapter_name 1": true, "chapter_name 2": false},
   },
