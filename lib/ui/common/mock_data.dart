@@ -18,7 +18,6 @@ const List<Map<String, dynamic>> homeviewResponse = [
 
 const coursesEnrolled = [" ", " ", " "];
 
-<<<<<<< HEAD
 Map<String, dynamic> techStack = {
   "Question": "Which Boat  you would like to sail ⚓ with?",
   "option": [
@@ -43,7 +42,6 @@ Map<String, dynamic> androidTech = {
     {"title": "Akash", "status": "disable"},
   ]
 };
-=======
 //List questions for onboarding
 
 const List<Map<String, dynamic>> onboardingquiz = [
@@ -294,4 +292,3 @@ const List<Map<String, dynamic>> quiz = [
     ],
   },
 ];
->>>>>>> ed8817541a54e74ecbb6620325662c5dd8383d5c
