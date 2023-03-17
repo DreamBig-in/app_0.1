@@ -16,6 +16,8 @@ import 'package:app/ui/views/slider/slider_view.dart';
 import 'package:app/ui/bottom_sheets/checkanswer/checkanswer_sheet.dart';
 import 'package:app/ui/bottom_sheets/stack/stack_sheet.dart';
 
+import 'package:app/ui/views/options_on_boarding/options_on_boarding_view.dart';
+
 // @stacked-import
 
 @StackedApp(
@@ -31,6 +33,7 @@ import 'package:app/ui/bottom_sheets/stack/stack_sheet.dart';
     MaterialRoute(page: OnboardingquizView),
     MaterialRoute(page: ScoreboardView),
     MaterialRoute(page: SliderView),
+    MaterialRoute(page: OptionsOnBoardingView),
 // @stacked-route
   ],
   dependencies: [

@@ -4,6 +4,8 @@ import 'dart:developer';
 import 'package:app/app/app.router.dart';
 import 'package:app/enums/api_type.dart';
 import 'package:app/services/api_request.dart';
+import 'package:app/ui/common/mock_data.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
@@ -65,5 +67,9 @@ class LoginViewModel extends BaseViewModel {
       // Navigrate to the  screen
     }
     log(response.body.toString());
+  }
+
+  void navigateForGetStarted() {
+    _navigationService.replaceWith(Routes.instructionpageView);
   }
 }

@@ -26,4 +26,9 @@ class SliderViewModel extends BaseViewModel {
   void navigateToQuiz() {
     _navigationService.replaceWithQuizView(questions: onboardingquiz);
   }
+
+  void navigateToOptionsOnBoarding() {
+    _navigationService
+        .replaceWithOptionsOnBoardingView(content: [techStack, androidTech]);
+  }
 }

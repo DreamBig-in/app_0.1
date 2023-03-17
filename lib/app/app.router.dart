@@ -11,15 +11,17 @@ import 'package:app/ui/views/instructionpage/instructionpage_view.dart' as _i5;
 import 'package:app/ui/views/login/login_view.dart' as _i6;
 import 'package:app/ui/views/markdown/markdown_view.dart' as _i7;
 import 'package:app/ui/views/onboardingquiz/onboardingquiz_view.dart' as _i10;
+import 'package:app/ui/views/options_on_boarding/options_on_boarding_view.dart'
+    as _i13;
 import 'package:app/ui/views/profile/profile_view.dart' as _i8;
 import 'package:app/ui/views/quiz/quiz_view.dart' as _i9;
 import 'package:app/ui/views/scoreboard/scoreboard_view.dart' as _i11;
 import 'package:app/ui/views/slider/slider_view.dart' as _i12;
 import 'package:app/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i13;
+import 'package:flutter/material.dart' as _i14;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i14;
+import 'package:stacked_services/stacked_services.dart' as _i15;
 
 class Routes {
   static const homeView = '/home-view';
@@ -44,6 +46,8 @@ class Routes {
 
   static const sliderView = '/slider-view';
 
+  static const optionsOnBoardingView = '/options-on-boarding-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -56,6 +60,7 @@ class Routes {
     onboardingquizView,
     scoreboardView,
     sliderView,
+    optionsOnBoardingView,
   };
 }
 
@@ -105,39 +110,43 @@ class StackedRouter extends _i1.RouterBase {
       Routes.sliderView,
       page: _i12.SliderView,
     ),
+    _i1.RouteDef(
+      Routes.optionsOnBoardingView,
+      page: _i13.OptionsOnBoardingView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
         maintainState: false,
       );
     },
     _i3.StartupView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
         maintainState: false,
       );
     },
     _i4.BookView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.BookView(),
         settings: data,
         maintainState: false,
       );
     },
     _i5.InstructionpageView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.InstructionpageView(),
         settings: data,
         maintainState: false,
       );
     },
     _i6.LoginView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.LoginView(),
         settings: data,
         maintainState: false,
@@ -145,7 +154,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i7.MarkdownView: (data) {
       final args = data.getArgs<MarkdownViewArguments>(nullOk: false);
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) =>
             _i7.MarkdownView(key: args.key, markData: args.markData),
         settings: data,
@@ -153,7 +162,7 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i8.ProfileView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.ProfileView(),
         settings: data,
         maintainState: false,
@@ -161,7 +170,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i9.QuizView: (data) {
       final args = data.getArgs<QuizViewArguments>(nullOk: false);
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) =>
             _i9.QuizView(key: args.key, questions: args.questions),
         settings: data,
@@ -169,22 +178,31 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i10.OnboardingquizView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.OnboardingquizView(),
         settings: data,
         maintainState: false,
       );
     },
     _i11.ScoreboardView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.ScoreboardView(),
         settings: data,
         maintainState: false,
       );
     },
     _i12.SliderView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.SliderView(),
+        settings: data,
+        maintainState: false,
+      );
+    },
+    _i13.OptionsOnBoardingView: (data) {
+      final args = data.getArgs<OptionsOnBoardingViewArguments>(nullOk: false);
+      return _i14.MaterialPageRoute<dynamic>(
+        builder: (context) =>
+            _i13.OptionsOnBoardingView(key: args.key, content: args.content),
         settings: data,
         maintainState: false,
       );
@@ -203,7 +221,7 @@ class MarkdownViewArguments {
     required this.markData,
   });
 
-  final _i13.Key? key;
+  final _i14.Key? key;
 
   final String markData;
 
@@ -219,7 +237,7 @@ class QuizViewArguments {
     required this.questions,
   });
 
-  final _i13.Key? key;
+  final _i14.Key? key;
 
   final List<Map<String, dynamic>> questions;
 
@@ -229,7 +247,23 @@ class QuizViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i14.NavigationService {
+class OptionsOnBoardingViewArguments {
+  const OptionsOnBoardingViewArguments({
+    this.key,
+    required this.content,
+  });
+
+  final _i14.Key? key;
+
+  final List<dynamic> content;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "content": "$content"}';
+  }
+}
+
+extension NavigatorStateExtension on _i15.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -301,7 +335,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> navigateToMarkdownView({
-    _i13.Key? key,
+    _i14.Key? key,
     required String markData,
     int? routerId,
     bool preventDuplicates = true,
@@ -332,7 +366,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> navigateToQuizView({
-    _i13.Key? key,
+    _i14.Key? key,
     required List<Map<String, dynamic>> questions,
     int? routerId,
     bool preventDuplicates = true,
@@ -384,6 +418,23 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.sliderView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToOptionsOnBoardingView({
+    _i14.Key? key,
+    required List<dynamic> content,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo<dynamic>(Routes.optionsOnBoardingView,
+        arguments: OptionsOnBoardingViewArguments(key: key, content: content),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -461,7 +512,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> replaceWithMarkdownView({
-    _i13.Key? key,
+    _i14.Key? key,
     required String markData,
     int? routerId,
     bool preventDuplicates = true,
@@ -492,7 +543,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> replaceWithQuizView({
-    _i13.Key? key,
+    _i14.Key? key,
     required List<Map<String, dynamic>> questions,
     int? routerId,
     bool preventDuplicates = true,
@@ -544,6 +595,23 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.sliderView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithOptionsOnBoardingView({
+    _i14.Key? key,
+    required List<dynamic> content,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return replaceWith<dynamic>(Routes.optionsOnBoardingView,
+        arguments: OptionsOnBoardingViewArguments(key: key, content: content),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
