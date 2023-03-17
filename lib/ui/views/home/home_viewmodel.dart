@@ -74,4 +74,9 @@ class HomeViewModel extends BaseViewModel {
     // TODO: Should move to replit.
     log("Should launch replit app");
   }
+
+  void navigateToOnBoarding() {
+    _navigationService
+        .navigateToOptionsOnBoardingView(content: [techStack, androidTech]);
+  }
 }

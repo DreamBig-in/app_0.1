@@ -46,22 +46,30 @@ class HomeView extends StackedView<HomeViewModel> {
                                     return index == coursesEnrolled.length
                                         ? Column(
                                             children: [
-                                              Container(
-                                                width: 70,
-                                                height: 48,
-                                                margin:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 10),
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  border: Border.all(
-                                                      color: supressedColorText,
-                                                      width: 2),
-                                                ),
-                                                child: Icon(
-                                                  Icons.add,
-                                                  color: supressedColorText,
+                                              GestureDetector(
+                                                onTap: () {
+                                                  viewModel
+                                                      .navigateToOnBoarding();
+                                                },
+                                                child: Container(
+                                                  width: 70,
+                                                  height: 48,
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 10),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    border: Border.all(
+                                                        color:
+                                                            supressedColorText,
+                                                        width: 2),
+                                                  ),
+                                                  child: Icon(
+                                                    Icons.add,
+                                                    color: supressedColorText,
+                                                  ),
                                                 ),
                                               ),
                                               verticalSpaceTiny,
@@ -94,6 +102,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                                       BorderRadius.circular(5),
                                                 ),
                                                 child: Container(
+                                                  child: const Image(
+                                                    image: AssetImage(
+                                                        'assets/images/flutter.gif'),
+                                                  ),
                                                   decoration: BoxDecoration(
                                                     color: supressedColorText,
                                                     borderRadius:

@@ -18,7 +18,7 @@ const List<Map<String, dynamic>> homeviewResponse = [
   },
 ];
 
-const coursesEnrolled = [" ", " ", " "];
+const coursesEnrolled = [" "];
 
 Map<String, dynamic> techStack = {
   "Question": "Which Boat  you would like to sail ⚓ with?",
