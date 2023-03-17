@@ -129,7 +129,9 @@ class ProfileView extends StackedView<ProfileViewModel> {
                                 height: 60,
                                 width: 100,
                                 child: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      viewModel.navigateToRecruitmentScreen();
+                                    },
                                     icon: const Icon(Icons.share))),
                           ],
                         )
