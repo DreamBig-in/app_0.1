@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:app/app/app.router.dart';
 import 'package:app/file_exporter.dart';
 import 'package:app/services/google_authentication_service.dart';
+import 'package:app/ui/common/mock_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
 import 'package:app/app/app.locator.dart';
@@ -51,9 +52,8 @@ class HomeViewModel extends BaseViewModel {
     _navigationService.replaceWith(Routes.loginView);
   }
 
-  int navigateToQuiz() {
-    _navigationService.replaceWith(Routes.quizView);
-    return 0;
+  void navigateToQuiz() {
+    _navigationService.navigateToQuizView(questions: quiz);
   }
 
   void navigateToBook() {

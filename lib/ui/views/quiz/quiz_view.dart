@@ -4,7 +4,8 @@ import 'package:app/ui/common/buttons.dart';
 import 'quiz_viewmodel.dart';
 
 class QuizView extends StackedView<QuizViewModel> {
-  const QuizView({Key? key}) : super(key: key);
+  final List<Map<String, dynamic>> questions;
+  const QuizView({Key? key, required this.questions}) : super(key: key);
 
   @override
   Widget builder(
@@ -144,7 +145,7 @@ class QuizView extends StackedView<QuizViewModel> {
   QuizViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      QuizViewModel();
+      QuizViewModel(questions: questions);
 }
 
 //  viewModel.checkanswer();
