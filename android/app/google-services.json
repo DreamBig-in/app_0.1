@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1094222446841",
+    "project_id": "hackoverflow-52355",
+    "storage_bucket": "hackoverflow-52355.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094222446841:android:e0a48b7fb4497741be6228",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094222446841-o5bc8pn3ua48p4lv55o2l0vaob4v647k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app",
+            "certificate_hash": "4d821392874f5a0aeec5767d6b5b222552e8e9b9"
+          }
+        },
+        {
+          "client_id": "1094222446841-c3jo8vg25fkdjr7dvmeunlfdcdaqk085.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEguy8w_u4rWTyJCRmfM2wVSYTUer9hD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094222446841-ads2k7r6tcp9r242min6kv7sui05bhv7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1094222446841-h7oo2mo4qb5ef5oe6je1rk6mhqcn631h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

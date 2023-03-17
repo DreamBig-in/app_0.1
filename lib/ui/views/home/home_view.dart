@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:stacked/stacked.dart';
-import 'package:app/ui/common/app_colors.dart';
-import 'package:app/ui/common/ui_helpers.dart';
+import 'dart:developer';
 
+import "package:app/file_exporter.dart";
+import 'package:app/ui/common/mock_data.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -15,65 +14,171 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                verticalSpaceLarge,
-                Column(
-                  children: [
-                    const Text(
-                      'Hello, STACKED!',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
+      appBar: AppBar(
+        flexibleSpace: SafeArea(
+          child: Container(
+            alignment: Alignment.center,
+            margin: const EdgeInsets.symmetric(horizontal: 17, vertical: 10),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: viewModel.showBottomSheet,
+                    child: Container(
+                      height: 30,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: supressedColorText,
                       ),
                     ),
-                    verticalSpaceMedium,
-                    MaterialButton(
-                      color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
-                      child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
+                  ),
+                  TextButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: appBarBackgroundColor,
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      child: const Text(
-                        'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
+                      onPressed: () {},
+                      icon: Image.asset("assets/images/fire_streak.png"),
+                      label: const Text(
+                        "7",
+                        style: TextStyle(color: Colors.white),
+                      )),
+                  SizedBox(
+                    child: TextButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: appBarBackgroundColor,
                         ),
-                      ),
-                      onPressed: viewModel.showDialog,
-                    ),
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      child: const Text(
-                        'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      onPressed: viewModel.showBottomSheet,
-                    ),
-                  ],
-                )
-              ],
-            ),
+                        onPressed: () {},
+                        icon: Image.asset("assets/images/Dimond.png"),
+                        label: const Text(
+                          "700",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                  ),
+                ]),
           ),
         ),
       ),
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: () async {
+            log("Referhed");
+          },
+          color: successTextColor,
+          backgroundColor: scaffoldBackgroundColor,
+          displacement: 10,
+          child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: homeviewResponse.length,
+              itemBuilder: ((context, mainindex) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: homeviewResponse[mainindex].length + 1,
+                  itemBuilder: (context, index) {
+                    return index == 0
+                        ? Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 17),
+                            margin: const EdgeInsets.symmetric(vertical: 1),
+                            height: 100,
+                            decoration:
+                                BoxDecoration(color: appBarBackgroundColor),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Unit ${mainindex + 1}",
+                                        style: const TextStyle(fontSize: 20),
+                                      ),
+                                      verticalSpaceTiny,
+                                      Text(
+                                        homeviewResponse[mainindex]["unitName"],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    viewModel.navigateToBook();
+                                  },
+                                  child: const SizedBox(
+                                    width: 50,
+                                    child: Icon(
+                                      Icons.book,
+                                      size: 45,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        : GestureDetector(
+                            onTap: () {
+                              log("unit $index clicked");
+                              index - 1 == 0
+                                  ? viewModel.navigateToQuiz()
+                                  : log("disabled");
+                            },
+                            child: Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 35),
+                              height: 120,
+                              alignment: (index - 1) % 4 == 0
+                                  ? Alignment.center
+                                  : (index - 1) % 4 == 1
+                                      ? Alignment.topLeft
+                                      : (index - 1) % 4 == 2
+                                          ? Alignment.center
+                                          : Alignment.topRight,
+                              child: Stack(
+                                  alignment: AlignmentDirectional.center,
+                                  children: [
+                                    (index - 1 == 0 && mainindex == 0)
+                                        ? Image.asset(
+                                            "assets/images/Level.png",
+                                            fit: BoxFit.fill,
+                                          )
+                                        : Image.asset(
+                                            "assets/images/disabled_level.png",
+                                            fit: BoxFit.fill,
+                                          ),
+                                    // Add Icon here
+                                  ]),
+                            ),
+                          );
+                  },
+                );
+              })),
+        ),
+      ),
+      bottomNavigationBar:
+          BottomNavigationBar(backgroundColor: scaffoldBackgroundColor, items: [
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+              icon: const Icon(Icons.score),
+              onPressed: () {
+                viewModel.navigatetoScore();
+              }),
+          label: 'ScoreBoard',
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () {
+                viewModel.navigatetoProfile();
+              }),
+          label: 'Profile',
+        ),
+      ]),
     );
   }
 

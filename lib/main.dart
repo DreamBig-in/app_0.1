@@ -1,12 +1,19 @@
-import 'package:flutter/material.dart';
 import 'package:app/app/app.bottomsheets.dart';
 import 'package:app/app/app.dialogs.dart';
+
+import "file_exporter.dart";
+
+import 'package:firebase_core/firebase_core.dart';
+
 import 'package:app/app/app.locator.dart';
-import 'package:app/app/app.router.dart';
-import 'package:app/ui/common/app_colors.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-void main() {
+import 'app/app.router.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
@@ -21,12 +28,31 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: Theme.of(context).copyWith(
-        primaryColor: kcBackgroundColor,
-        focusColor: kcPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        appBarTheme: AppBarTheme(
+          backgroundColor: appBarBackgroundColor,
+          elevation: 0,
+          shape: Border(
+            bottom: BorderSide(
+              color: scaffoldBackgroundColor,
+              width: 0.5,
             ),
+          ),
+        ),
+        fontFamily: "Arial",
+        textTheme: const TextTheme(
+          bodyText1: TextStyle(
+            color: Colors.white,
+            fontFamily: "Arial",
+          ),
+          bodyText2: TextStyle(
+            color: Colors.white,
+            fontFamily: "Arial",
+          ),
+        ),
       ),
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
