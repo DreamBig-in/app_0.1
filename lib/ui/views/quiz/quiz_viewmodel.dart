@@ -45,8 +45,11 @@ class QuizViewModel extends BaseViewModel {
       }
       selectedindex = 0;
       getrightanswer();
+      debugPrint(answer.toString());
+      debugPrint(rightanswer.toString());
+      // showBottomSheet(true, "sfjbsdkf");
+      final _bottomSheetService = locator<BottomSheetService>();
 
-      showBottomSheet(answer, rightanswer);
       nextquestion();
       if (questionIndex < questions.length) {
         isselected = false;

@@ -69,7 +69,7 @@ class SliderView extends StackedView<SliderViewModel> {
               ReUsedBtn(
                   title: "Continue",
                   onClickAction: () {
-                    viewModel.navigateToHomeScreen();
+                    viewModel.navigateToQuiz();
                   },
                   buttonType: ButtonType.success)
             ],

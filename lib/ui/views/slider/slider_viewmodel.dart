@@ -21,4 +21,8 @@ class SliderViewModel extends BaseViewModel {
     print("navigate to home screen");
     _navigationService.replaceWith(Routes.homeView);
   }
+
+  void navigateToQuiz() {
+    _navigationService.replaceWith(Routes.quizView);
+  }
 }
