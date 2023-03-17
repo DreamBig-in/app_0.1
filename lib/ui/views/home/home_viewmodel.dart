@@ -51,8 +51,9 @@ class HomeViewModel extends BaseViewModel {
     _navigationService.replaceWith(Routes.loginView);
   }
 
-  void navigateToQuiz() {
+  int navigateToQuiz() {
     _navigationService.replaceWith(Routes.quizView);
+    return 0;
   }
 
   void navigateToBook() {
