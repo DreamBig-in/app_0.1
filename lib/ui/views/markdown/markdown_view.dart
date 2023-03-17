@@ -26,6 +26,12 @@ class MarkdownView extends StackedView<MarkdownViewModel> {
             },
             data: markData,
             selectable: true,
+            styleSheet: MarkdownStyleSheet(
+              h1: TextStyle(fontSize: 32, color: Colors.amber),
+              h1Align: WrapAlignment.center,
+              h1Padding: EdgeInsets.symmetric(vertical: 20),
+              // h6: TextStyle(fontSize: 40, color: Colors.amber)
+            ),
           ),
         ),
       ),
