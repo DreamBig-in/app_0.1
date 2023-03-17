@@ -43,6 +43,6 @@ class OptionsOnBoardingViewModel extends BaseViewModel {
   }
 
   void naigatetoQuizScreen() {
-    _navigationService.replaceWith(Routes.quizView);
+    _navigationService.replaceWithQuizView(questions: onboardingquiz);
   }
 }
