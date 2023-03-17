@@ -76,7 +76,7 @@ class LoginView extends StackedView<LoginViewModel> {
                   onPressed: () {
                     // TODO: Write the code for the sign in with Get Started button
                     // TODO: Testing Code Should be refactored later
-                    _navigationService.replaceWith(Routes.homeView);
+                    _navigationService.replaceWith(Routes.instructionpageView);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: successTextColor,

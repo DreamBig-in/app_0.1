@@ -80,7 +80,7 @@ class InstructionpageView extends StackedView<InstructionpageViewModel> {
           ReUsedBtn(
             title: "Get Started",
             onClickAction: () {
-              locator<NavigationService>().replaceWith(Routes.homeView);
+              locator<NavigationService>().replaceWith(Routes.sliderView);
             },
             buttonType: ButtonType.success,
           ),

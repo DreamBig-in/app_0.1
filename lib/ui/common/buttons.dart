@@ -18,7 +18,6 @@ class ReUsedBtn extends StatelessWidget {
         children: [
           Container(
             height: 55,
-            margin: const EdgeInsets.symmetric(horizontal: 20),
             width: double.infinity,
             decoration: BoxDecoration(
               color: buttonType == ButtonType.success
@@ -31,7 +30,6 @@ class ReUsedBtn extends StatelessWidget {
           ),
           Container(
             height: 50,
-            margin: const EdgeInsets.symmetric(horizontal: 20),
             width: double.infinity,
             decoration: BoxDecoration(
               color: buttonType == ButtonType.success
