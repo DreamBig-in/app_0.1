@@ -18,6 +18,7 @@ import 'package:app/ui/bottom_sheets/stack/stack_sheet.dart';
 
 import 'package:app/ui/views/options_on_boarding/options_on_boarding_view.dart';
 
+import 'package:app/ui/views/chatgpt/chatgpt_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -34,6 +35,7 @@ import 'package:app/ui/views/options_on_boarding/options_on_boarding_view.dart';
     MaterialRoute(page: ScoreboardView),
     MaterialRoute(page: SliderView),
     MaterialRoute(page: OptionsOnBoardingView),
+    MaterialRoute(page: ChatgptView),
 // @stacked-route
   ],
   dependencies: [
