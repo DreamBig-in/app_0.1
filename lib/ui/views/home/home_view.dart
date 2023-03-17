@@ -23,17 +23,110 @@ class HomeView extends StackedView<HomeViewModel> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: viewModel.showBottomSheet,
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: const EdgeInsets.only(
+                                left: 20, top: 30, bottom: 30),
+                            decoration: BoxDecoration(
+                              color: appBarBackgroundColor,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                            ),
+                            child: SizedBox(
+                              height: 80,
+                              child: ListView.builder(
+                                  itemCount: coursesEnrolled.length + 1,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: ((context, index) {
+                                    return index == coursesEnrolled.length
+                                        ? Column(
+                                            children: [
+                                              Container(
+                                                width: 70,
+                                                height: 48,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 10),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                  border: Border.all(
+                                                      color: supressedColorText,
+                                                      width: 2),
+                                                ),
+                                                child: Icon(
+                                                  Icons.add,
+                                                  color: supressedColorText,
+                                                ),
+                                              ),
+                                              verticalSpaceTiny,
+                                              const Text(
+                                                "Courses",
+                                                style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        : Column(
+                                            children: [
+                                              Container(
+                                                width: 70,
+                                                height: 50,
+                                                padding:
+                                                    const EdgeInsets.all(3),
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 10),
+                                                decoration: BoxDecoration(
+                                                  border: index + 1 == 1
+                                                      ? Border.all(
+                                                          color: selectColor,
+                                                          width: 2)
+                                                      : const Border(),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                ),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: supressedColorText,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                  ),
+                                                ),
+                                              ),
+                                              verticalSpaceTiny,
+                                              const Text(
+                                                "Flutter",
+                                                style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              )
+                                            ],
+                                          );
+                                  })),
+                            ),
+                          );
+                        },
+                      );
+                    },
                     child: Container(
                       height: 30,
                       width: 40,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage("assets/images/flutter.gif")),
                         color: supressedColorText,
-                      ),
-                      child: Image.asset(
-                        "assets/images/flutter.gif",
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
