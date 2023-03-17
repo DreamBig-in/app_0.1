@@ -10,7 +10,7 @@ class BookViewModel extends BaseViewModel {
 
   String dartBasics = """
 
-# *Dart Basics*
+# Dart Basics
 
 Dart is an open-source, general-purpose, object-oriented programming language with C-style 
 syntax developed by Google in 2011. 
@@ -28,7 +28,7 @@ Visit the following resources to learn more:
 """;
 
   String dartPad = """
-# *DartPad*
+# DartPad
 DartPad is an online tool that allows developers to write and run Dart code snippets. 
 
 It can also be used to run Flutter code, making it a convenient way to try out Flutter apps and widgets without having to set up a full development environment.
@@ -40,7 +40,7 @@ Visit the following resources to learn more:
 
 """;
   String variables = """
-# *Variables*
+# Variables
 In Flutter, variables are used to store values. There are two types of variables in Flutter:
 
 local variables: These are declared within a function and are only accessible within that function
@@ -56,7 +56,7 @@ Visit the following resources to learn more:
 """;
 
   String builtinTypes = """
-# *Built-in Types*
+# Built-in Types
 There are several built-in data types, including:
 
 int: used to store integers
@@ -82,7 +82,7 @@ Visit the following resources to learn more:
 """;
 
   String functions = """
-# *Functions*
+# Functions
 Dart is a true object-oriented language, so even functions are objects and have a type, Function. 
 This means that functions can be assigned to variables or passed as arguments to other functions. You can also call an instance of a Dart class as if it were a function.
 
@@ -93,7 +93,7 @@ Visit the following resources to learn more:
 """;
 
   String operators = """
-# *Operators*
+# Operators
 Operators are symbols or keywords used to perform operations on values. 
 
 There are several types of operators available in Flutter:
@@ -117,7 +117,7 @@ Visit the following resources to learn more:
 """;
 
   String flowStatements = """
-# *Control Flow Statements*
+# Control Flow Statements
 In Dart, control flow statements are used to control the flow of execution of a program. 
 The following are the main types of control flow statements in Dart:
 

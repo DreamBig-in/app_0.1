@@ -4,6 +4,7 @@ import 'package:app/app/app.locator.dart';
 import 'package:app/app/app.router.dart';
 import 'package:app/services/google_authentication_service.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 import '/file_exporter.dart';
 
@@ -28,40 +29,58 @@ class LoginView extends StackedView<LoginViewModel> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  GestureDetector(
-                    onTap: (() {
-                      // TODO: Testing Code Should be removed later.
-                      final authenticationService =
-                          locator<GoogleAuthenticationService>();
-                      authenticationService.logOut();
-                      log("Logging out");
-                    }),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 17, vertical: 17),
-                      height: 35,
-                      width: 35,
-                      decoration: BoxDecoration(
-                        color: const Color(0XFFD9D9D9),
-                        borderRadius: BorderRadius.circular(5),
+                  // GestureDetector(
+                  //   onTap: (() {
+                  //     // TODO: Testing Code Should be removed later.
+                  //     final authenticationService =
+                  //         locator<GoogleAuthenticationService>();
+                  //     authenticationService.logOut();
+                  //     log("Logging out");
+                  //   }),
+                  //   child: Container(
+                  //     margin: const EdgeInsets.symmetric(
+                  //         horizontal: 17, vertical: 17),
+                  //     height: 35,
+                  //     width: 35,
+                  //     decoration: BoxDecoration(
+                  //       color: const Color(0XFFD9D9D9),
+                  //       borderRadius: BorderRadius.circular(5),
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(
+                    width: 10,
+                    height: 50,
+                  ),
+                  Container(
+                    height: 60,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      // color: const Color(0XFF797D80),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "NeoEdu",
+                        style: TextStyle(fontSize: 40),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
                   Container(
-                    height: 20,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: const Color(0XFF797D80),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  )
+                    margin: const EdgeInsets.all(10),
+                    child: AnimatedTextKit(totalRepeatCount: 1, animatedTexts: [
+                      TypewriterAnimatedText(
+                          "Welcome to the world of personalized learning",
+                          textStyle: const TextStyle(fontSize: 16),
+                          speed: const Duration(milliseconds: 80)),
+                    ]),
+                  ),
                 ],
               ),
-              SizedBox(height: height * .07),
+              SizedBox(height: height * .02),
               SizedBox(
                 width: width,
                 child: Image.asset('assets/images/onboarding.png'),
