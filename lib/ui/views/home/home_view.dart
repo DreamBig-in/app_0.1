@@ -31,6 +31,10 @@ class HomeView extends StackedView<HomeViewModel> {
                         borderRadius: BorderRadius.circular(5),
                         color: supressedColorText,
                       ),
+                      child: Image.asset(
+                        "assets/images/flutter.gif",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   TextButton.icon(
@@ -52,6 +56,20 @@ class HomeView extends StackedView<HomeViewModel> {
                         icon: Image.asset("assets/images/Dimond.png"),
                         label: const Text(
                           "700",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                  ),
+                  SizedBox(
+                    child: TextButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0XFF0b1323),
+                        ),
+                        onPressed: () {
+                          viewModel.launchReplitApp();
+                        },
+                        icon: Image.asset("assets/images/replit.png"),
+                        label: const Text(
+                          "Replit",
                           style: TextStyle(color: Colors.white),
                         )),
                   ),
@@ -156,29 +174,39 @@ class HomeView extends StackedView<HomeViewModel> {
               })),
         ),
       ),
-      bottomNavigationBar:
-          BottomNavigationBar(backgroundColor: scaffoldBackgroundColor, items: [
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-              icon: const Icon(Icons.score),
-              onPressed: () {
-                viewModel.navigatetoScore();
-              }),
-          label: 'ScoreBoard',
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-              icon: const Icon(Icons.person),
-              onPressed: () {
-                viewModel.navigatetoProfile();
-              }),
-          label: 'Profile',
-        ),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: scaffoldBackgroundColor,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.score),
+                  onPressed: () {
+                    viewModel.navigatetoScore();
+                  }),
+              label: 'ScoreBoard',
+            ),
+            BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.work),
+                  onPressed: () {
+                    // TODO: navigate to jobs
+                  }),
+              label: 'Jobs',
+            ),
+            BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () {
+                    viewModel.navigatetoProfile();
+                  }),
+              label: 'Profile',
+            ),
+          ]),
     );
   }
 

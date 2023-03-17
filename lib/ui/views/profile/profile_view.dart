@@ -1,4 +1,5 @@
 import 'package:app/ui/common/app_colors.dart';
+import 'package:app/ui/views/home/home_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -28,6 +29,44 @@ class ProfileView extends StackedView<ProfileViewModel> {
               ),
             ],
           ),
+          bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: scaffoldBackgroundColor,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: 3,
+              items: [
+                BottomNavigationBarItem(
+                  icon: IconButton(
+                      icon: const Icon(Icons.home),
+                      onPressed: () {
+                        HomeViewModel().navigatetoHome();
+                      }),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: IconButton(
+                      icon: const Icon(Icons.score),
+                      onPressed: () {
+                        HomeViewModel().navigatetoScore();
+                      }),
+                  label: 'ScoreBoard',
+                ),
+                BottomNavigationBarItem(
+                  icon: IconButton(
+                      icon: const Icon(Icons.work),
+                      onPressed: () {
+                        // TODO: navigate to jobs
+                      }),
+                  label: 'Jobs',
+                ),
+                BottomNavigationBarItem(
+                  icon: IconButton(
+                      icon: const Icon(Icons.person),
+                      onPressed: () {
+                        HomeViewModel().navigatetoProfile();
+                      }),
+                  label: 'Profile',
+                ),
+              ]),
           body: SafeArea(
             child: SingleChildScrollView(
               child: Column(

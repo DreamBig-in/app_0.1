@@ -13,8 +13,8 @@ class ProfileViewModel extends BaseViewModel {
   Future logout() async {
     log("logout");
     final prefs = await SharedPreferences.getInstance();
-    final authenticationService = locator<GoogleAuthenticationService>();
-    authenticationService.logOut();
+    // final authenticationService = locator<GoogleAuthenticationService>();
+    // authenticationService.logOut();
     await prefs.clear();
     _navigationService.replaceWith(Routes.loginView);
   }
