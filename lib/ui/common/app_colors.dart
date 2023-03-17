@@ -13,6 +13,8 @@ Color successTextColordark = const Color.fromARGB(255, 98, 136, 16);
 Color black = const Color(0xFF000000);
 Color selectColor = const Color(0XFF1DAFF5);
 
+Color selectColordark = Color.fromARGB(255, 2, 119, 174);
+
 // TODO: Remove the below colors later
 const Color kcPrimaryColor = Color(0xFF9600FF);
 const Color kcPrimaryColorDark = Color(0xFF300151);

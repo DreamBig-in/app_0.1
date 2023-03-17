@@ -1,4 +1,7 @@
+import 'package:app/enums/button_type.dart';
+import 'package:app/file_exporter.dart';
 import 'package:app/ui/common/app_colors.dart';
+import 'package:app/ui/common/buttons.dart';
 import 'package:app/ui/views/home/home_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -84,16 +87,14 @@ class ProfileView extends StackedView<ProfileViewModel> {
                               padding: const EdgeInsets.all(10.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                                children: const [
                                   SizedBox(
                                       // height: 70,
-                                      child: Text(
-                                    "Sachin",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium,
-                                  )),
-                                  const Text("rs.rathodsachin@gmail.com"),
+                                      child: Text("Sachin",
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold))),
+                                  Text("rs.rathodsachin@gmail.com"),
                                 ],
                               ),
                             ),
@@ -128,7 +129,9 @@ class ProfileView extends StackedView<ProfileViewModel> {
                                 height: 60,
                                 width: 100,
                                 child: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      viewModel.navigateToRecruitmentScreen();
+                                    },
                                     icon: const Icon(Icons.share))),
                           ],
                         )
@@ -197,6 +200,75 @@ class ProfileView extends StackedView<ProfileViewModel> {
                             )),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 160,
+                    child: ListView.builder(
+                        itemCount: 5,
+                        scrollDirection: Axis.horizontal,
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Container(
+                              padding: const EdgeInsets.all(5),
+                              width: 150,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          31, 233, 228, 228)),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                      height: 70,
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        color: kcMediumGrey,
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                      )),
+                                  verticalSpaceSmall,
+                                  const Text("Friend"),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        height: 35,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                            color: selectColordark,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        height: 30,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: selectColor,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: const Text(
+                                          "Follow",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            color: kcDarkGreyColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ));
+                        }),
                   )
                 ],
               ),
