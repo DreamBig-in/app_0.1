@@ -278,9 +278,9 @@ class HomeView extends StackedView<HomeViewModel> {
             ),
             BottomNavigationBarItem(
               icon: IconButton(
-                  icon: const Icon(Icons.score),
+                  icon: const Icon(Icons.person),
                   onPressed: () {
-                    viewModel.navigatetoScore();
+                    viewModel.navigatetoProfile();
                   }),
               label: 'ScoreBoard',
             ),
