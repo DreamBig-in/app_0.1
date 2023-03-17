@@ -1,6 +1,7 @@
 import 'package:app/enums/button_type.dart';
 import 'package:app/file_exporter.dart';
 import 'package:app/ui/common/buttons.dart';
+import 'package:rive/rive.dart';
 import 'quiz_viewmodel.dart';
 
 class QuizView extends StackedView<QuizViewModel> {
@@ -21,20 +22,23 @@ class QuizView extends StackedView<QuizViewModel> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                margin: const EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.blue,
-                    border: Border.all(
-                      color: Colors.white,
-                    )),
-                child: LinearProgressIndicator(
-                  value: viewModel.questionIndex / viewModel.questions.length,
-                  minHeight: 10,
-                  backgroundColor: Colors.white,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
-                ),
-              ),
+                  margin: const EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.blue,
+                      border: Border.all(
+                        color: Colors.white,
+                      )),
+                  child: viewModel.questionIndex < viewModel.questions.length
+                      ? LinearProgressIndicator(
+                          value: viewModel.questionIndex /
+                              viewModel.questions.length,
+                          minHeight: 10,
+                          backgroundColor: Colors.white,
+                          valueColor:
+                              const AlwaysStoppedAnimation<Color>(Colors.blue),
+                        )
+                      : SizedBox()),
             ),
             Container(
               padding: const EdgeInsets.only(left: 25.0, right: 25.0),
@@ -97,10 +101,23 @@ class QuizView extends StackedView<QuizViewModel> {
                         }).toList()
                       ],
                     )
-                  : Center(
+                  : SafeArea(
                       child: Column(
-                      children: const [
-                        Text(
+                      children: [
+                        Center(
+                          child: SizedBox(
+                            height: 400,
+                            width: double.infinity,
+                            child: RiveAnimation.asset(
+                              "assets/animation/avatar.riv",
+                              fit: BoxFit.cover,
+                              controllers: [
+                                SimpleAnimation("break"),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const Text(
                           'Completed with the Test',
                           style: TextStyle(
                               fontSize: 24,

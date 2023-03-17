@@ -42,7 +42,7 @@ class OptionsOnBoardingViewModel extends BaseViewModel {
     rebuildUi();
   }
 
-  void naigatetoQuizScreen() {
-    _navigationService.replaceWithQuizView(questions: onboardingquiz);
+  void navigateToslider() {
+    _navigationService.replaceWithSliderView();
   }
 }
