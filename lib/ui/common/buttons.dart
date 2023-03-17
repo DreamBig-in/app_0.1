@@ -183,6 +183,17 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           ),
           BottomNavigationBarItem(
             icon: IconButton(
+                icon: Image.asset(
+                  "assets/images/openAI.png",
+                  scale: 1,
+                ),
+                onPressed: () {
+                  HomeViewModel().navigateToOpenAI();
+                }),
+            label: 'Beta',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
                 icon: const Icon(Icons.person),
                 onPressed: () {
                   HomeViewModel().navigatetoProfile();

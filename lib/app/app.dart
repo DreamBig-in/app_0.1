@@ -36,11 +36,8 @@ import 'package:app/ui/views/recruitment/recruitment_view.dart';
     MaterialRoute(page: ScoreboardView),
     MaterialRoute(page: SliderView),
     MaterialRoute(page: OptionsOnBoardingView),
-<<<<<<< HEAD
     MaterialRoute(page: ChatgptView),
-=======
     MaterialRoute(page: RecruitmentView),
->>>>>>> 585bfbeb1e3363744097975e7f861f2bee9f1e59
 // @stacked-route
   ],
   dependencies: [

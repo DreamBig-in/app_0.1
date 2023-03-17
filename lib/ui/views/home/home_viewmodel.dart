@@ -85,4 +85,8 @@ class HomeViewModel extends BaseViewModel {
     _navigationService
         .navigateToOptionsOnBoardingView(content: [techStack, androidTech]);
   }
+
+  void navigateToOpenAI() {
+    _navigationService.navigateTo(Routes.chatgptView);
+  }
 }

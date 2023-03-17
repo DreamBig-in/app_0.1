@@ -23,6 +23,7 @@ class ChatgptView extends StackedView<ChatgptViewModel> {
       appBar: AppBar(
         backgroundColor: kcBackgroundColor,
         elevation: 0,
+        title: const Text("Flutter God"),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -38,7 +39,7 @@ class ChatgptView extends StackedView<ChatgptViewModel> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsets.only(bottom: 112),
+                padding: const EdgeInsets.only(bottom: 112),
                 child: ListView.builder(
                   reverse: true,
                   itemCount: viewModel.messages.length,
