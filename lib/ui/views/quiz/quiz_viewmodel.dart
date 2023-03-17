@@ -1,9 +1,6 @@
 import 'dart:math';
-
 import 'package:app/file_exporter.dart';
-import 'package:app/ui/common/mock_data.dart';
 import 'package:stacked_services/stacked_services.dart';
-
 import '../../../app/app.locator.dart';
 import '../../../app/app.router.dart';
 import '../../../enums/bottom_sheet_type.dart';
@@ -48,7 +45,6 @@ class QuizViewModel extends BaseViewModel {
       debugPrint(answer.toString());
       debugPrint(rightanswer.toString());
       // showBottomSheet(true, "sfjbsdkf");
-      final _bottomSheetService = locator<BottomSheetService>();
 
       nextquestion();
       if (questionIndex < questions.length) {
