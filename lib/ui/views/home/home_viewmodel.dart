@@ -33,13 +33,13 @@ class HomeViewModel extends BaseViewModel {
     );
   }
 
-  void showBottomSheet() {
-    _bottomSheetService.showCustomSheet(
-      variant: BottomSheetType.stack,
-      title: "ksHomeBottomSheetTitle",
-      description: ksHomeBottomSheetDescription,
-    );
-  }
+  // void showBottomSheet() {
+  //   _bottomSheetService.showCustomSheet(
+  //     variant: BottomSheetType.stack,
+  //     title: "ksHomeBottomSheetTitle",
+  //     description: ksHomeBottomSheetDescription,
+  //   );
+  // }
 
   final _navigationService = locator<NavigationService>();
 
