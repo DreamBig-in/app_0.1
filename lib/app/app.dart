@@ -15,6 +15,7 @@ import 'package:app/ui/views/scoreboard/scoreboard_view.dart';
 import 'package:app/ui/views/slider/slider_view.dart';
 import 'package:app/ui/bottom_sheets/checkanswer/checkanswer_sheet.dart';
 import 'package:app/ui/bottom_sheets/stack/stack_sheet.dart';
+
 // @stacked-import
 
 @StackedApp(
@@ -42,6 +43,7 @@ import 'package:app/ui/bottom_sheets/stack/stack_sheet.dart';
     StackedBottomsheet(classType: NoticeSheet),
     StackedBottomsheet(classType: CheckanswerSheet),
     StackedBottomsheet(classType: StackSheet),
+
 // @stacked-bottom-sheet
   ],
   dialogs: [

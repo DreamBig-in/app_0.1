@@ -86,6 +86,102 @@ const List<Map<String, dynamic>> onboardingquiz = [
     ],
   },
   {
+    'questionText':
+        'Which of the following operators is used for null-aware access in Dart?',
+    'answers': [
+      {'text': '==', 'isright': false, 'index': 1},
+      {'text': '!=', 'isright': false, 'index': 2},
+      {'text': '?.', 'isright': true, 'index': 3},
+      {'text': '!!', 'isright': false, 'index': 4},
+    ],
+  },
+];
+
+//Quiz questions for each chapter
+
+const List<Map<String, dynamic>> flutter_unit1 = [
+  {
+    'questionText':
+        'In Dart, how does the order of code instructions usually run?',
+    'answers': [
+      {'text': 'Randomly', 'isright': false, 'index': 1},
+      {'text': 'By size of chunk of code', 'isright': false, 'index': 2},
+      {'text': 'Sequentially from top to bottom', 'isright': true, 'index': 3},
+      {'text': 'Alphabetically', 'isright': false, 'index': 4},
+    ]
+  },
+  {
+    'questionText': 'What type of operator is ">" in Flutter?',
+    'answers': [
+      {'text': 'Arithmetic operator', 'isright': false, 'index': 1},
+      {'text': 'Comparison operator', 'isright': false, 'index': 2},
+      {'text': 'Relational operator', 'isright': true, 'index': 3},
+      {'text': 'Logical operator', 'isright': false, 'index': 4},
+    ],
+  },
+  {
+    'questionText': ' Which of the following is a loop statement?',
+    'answers': [
+      {'text': 'Switch-case', 'isright': false, 'index': 1},
+      {'text': 'If-else statement', 'isright': false, 'index': 2},
+      {'text': 'Do-while loop', 'isright': false, 'index': 3},
+      {'text': 'While loop', 'isright': true, 'index': 4},
+    ],
+  },
+  {
+    'questionText': 'What is the main advantage of using dart functions?',
+    'answers': [
+      {
+        'text': 'Improves the modular approach and enhances code reusability',
+        'isright': false,
+        'index': 1
+      },
+      {
+        'text': 'Functions make the program more secure',
+        'isright': false,
+        'index': 2
+      },
+      {
+        'text': 'Breaks the large code into smaller modules',
+        'isright': false,
+        'index': 3
+      },
+      {
+        'text': 'Makes debugging the program easier',
+        'isright': true,
+        'index': 4
+      },
+    ],
+  },
+  {
+    'questionText': 'When is the late modifier used?',
+    'answers': [
+      {
+        'text': 'To analyze control flow in Dart.',
+        'isright': false,
+        'index': 1
+      },
+      {
+        'text': 'To declare a non-nullable variable.',
+        'isright': true,
+        'index': 2
+      },
+      {
+        'text': 'To lazily initialize a variable.',
+        'isright': false,
+        'index': 3
+      },
+      {
+        'text': 'To initialize a non-nullable variable after its declaration.',
+        'isright': false,
+        'index': 4
+      },
+    ],
+  },
+];
+
+const List<Map<String, dynamic>> flutter_unit2 = [
+  {
     'questionText': 'while loop is ',
     'answers': [
       {
@@ -166,99 +262,6 @@ const List<Map<String, dynamic>> onboardingquiz = [
       },
       {
         'text': 'function sum(int a, int b) { return a + b; }',
-        'isright': false,
-        'index': 4
-      },
-    ],
-  },
-  {
-    'questionText':
-        'Which of the following operators is used for null-aware access in Dart?',
-    'answers': [
-      {'text': '==', 'isright': false, 'index': 1},
-      {'text': '!=', 'isright': false, 'index': 2},
-      {'text': '?.', 'isright': true, 'index': 3},
-      {'text': '!!', 'isright': false, 'index': 4},
-    ],
-  },
-];
-
-//Quiz questions for each chapter
-
-const List<Map<String, dynamic>> quiz = [
-  {
-    'questionText':
-        'In Dart, how does the order of code instructions usually run?',
-    'answers': [
-      {'text': 'Randomly', 'isright': false, 'index': 1},
-      {'text': 'By size of chunk of code', 'isright': false, 'index': 2},
-      {'text': 'Sequentially from top to bottom', 'isright': true, 'index': 3},
-      {'text': 'Alphabetically', 'isright': false, 'index': 4},
-    ]
-  },
-  {
-    'questionText': 'What type of operator is ">" in Flutter?',
-    'answers': [
-      {'text': 'Arithmetic operator', 'isright': false, 'index': 1},
-      {'text': 'Comparison operator', 'isright': false, 'index': 2},
-      {'text': 'Relational operator', 'isright': true, 'index': 3},
-      {'text': 'Logical operator', 'isright': false, 'index': 4},
-    ],
-  },
-  {
-    'questionText': ' Which of the following is a loop statement?',
-    'answers': [
-      {'text': 'Switch-case', 'isright': false, 'index': 1},
-      {'text': 'If-else statement', 'isright': false, 'index': 2},
-      {'text': 'Do-while loop', 'isright': false, 'index': 3},
-      {'text': 'While loop', 'isright': true, 'index': 4},
-    ],
-  },
-  {
-    'questionText': 'What is the main advantage of using dart functions?',
-    'answers': [
-      {
-        'text': 'Improves the modular approach and enhances code reusability',
-        'isright': false,
-        'index': 1
-      },
-      {
-        'text': 'Functions make the program more secure',
-        'isright': false,
-        'index': 2
-      },
-      {
-        'text': 'Breaks the large code into smaller modules',
-        'isright': false,
-        'index': 3
-      },
-      {
-        'text': 'Makes debugging the program easier',
-        'isright': true,
-        'index': 4
-      },
-    ],
-  },
-  {
-    'questionText': 'When is the late modifier used?',
-    'answers': [
-      {
-        'text': 'To analyze control flow in Dart.',
-        'isright': false,
-        'index': 1
-      },
-      {
-        'text': 'To declare a non-nullable variable.',
-        'isright': true,
-        'index': 2
-      },
-      {
-        'text': 'To lazily initialize a variable.',
-        'isright': false,
-        'index': 3
-      },
-      {
-        'text': 'To initialize a non-nullable variable after its declaration.',
         'isright': false,
         'index': 4
       },

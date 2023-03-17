@@ -15,6 +15,7 @@ enum BottomSheetType {
   notice,
   checkanswer,
   stack,
+  alert,
 }
 
 void setupBottomSheetUi() {

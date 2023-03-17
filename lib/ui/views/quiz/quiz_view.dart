@@ -120,6 +120,78 @@ class QuizView extends StackedView<QuizViewModel> {
                       ? 'Check Answer'
                       : 'Continue',
                   onClickAction: () {
+                    if (viewModel.isselected) {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
+                            decoration: const BoxDecoration(
+                              color: Color(0xff263238),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(
+                                  height: 40,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                          viewModel.answer == true
+                                              ? Icons.check_circle
+                                              : Icons.cancel,
+                                          color: viewModel.answer == true
+                                              ? successTextColor
+                                              : failedTextColor,
+                                          size: 30),
+                                      horizontalSpaceSmall,
+                                      Text(
+                                        viewModel.answer == true
+                                            ? "Right Answer"
+                                            : "Wrong Answer",
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w900,
+                                            color: viewModel.answer == true
+                                                ? successTextColor
+                                                : failedTextColor),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                verticalSpaceSmall,
+                                viewModel.answer == true
+                                    ? Container()
+                                    : Text(
+                                        viewModel.rightanswer,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: failedTextColor),
+                                      ),
+                                verticalSpaceMedium,
+                                ReUsedBtn(
+                                    title: viewModel.answer == true
+                                        ? "Continue"
+                                        : "Got It",
+                                    onClickAction: () {
+                                      Navigator.pop(context);
+                                    },
+                                    buttonType: viewModel.answer == true
+                                        ? ButtonType.success
+                                        : ButtonType.failed),
+                                verticalSpaceLarge,
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    }
                     if (viewModel.questionIndex < viewModel.questions.length) {
                       viewModel.checkanswer();
                       debugPrint(viewModel.selectedindex.toString());
@@ -147,7 +219,3 @@ class QuizView extends StackedView<QuizViewModel> {
   ) =>
       QuizViewModel(questions: questions);
 }
-
-//  viewModel.checkanswer();
-//                 debugPrint(viewModel.selectedindex.toString());
-//                 viewModel.nextquestion();
