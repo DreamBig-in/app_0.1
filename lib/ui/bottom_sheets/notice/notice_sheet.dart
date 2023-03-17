@@ -69,17 +69,6 @@ class NoticeSheet extends StatelessWidget {
               buttonType: request.data == true
                   ? ButtonType.success
                   : ButtonType.failed),
-          // ElevatedButton(
-          //     style: ButtonStyle(
-          //         backgroundColor: request.data == true
-          //             ? MaterialStateProperty.all(Colors.green)
-          //             : MaterialStateProperty.all(Colors.red)),
-          //     onPressed: () => Navigator.pop(context),
-          //     child: Center(
-          //       child: Text(
-          //         request.data == true ? "Continue" : "Got It",
-          //       ),
-          //     )),
           verticalSpaceLarge,
         ],
       ),

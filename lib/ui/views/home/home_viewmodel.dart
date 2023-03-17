@@ -53,7 +53,7 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void navigateToQuiz() {
-    _navigationService.navigateToQuizView(questions: quiz);
+    _navigationService.navigateToQuizView(questions: flutter_unit1);
   }
 
   void navigateToBook() {

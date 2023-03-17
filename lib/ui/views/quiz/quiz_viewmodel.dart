@@ -18,6 +18,7 @@ class QuizViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+//--------------------------------------------------------------
 //Function to select the option and change the color of the selected option
   bool isselected = false;
   int selectedindex = 0;
@@ -26,6 +27,8 @@ class QuizViewModel extends BaseViewModel {
     isselected = true;
     notifyListeners();
   }
+
+//--------------------------------------------------------------
 
 //Function to check the answer is correct or not
   bool answer = false;
@@ -44,7 +47,6 @@ class QuizViewModel extends BaseViewModel {
       getrightanswer();
       debugPrint(answer.toString());
       debugPrint(rightanswer.toString());
-      // showBottomSheet(true, "sfjbsdkf");
 
       nextquestion();
       if (questionIndex < questions.length) {
@@ -58,24 +60,14 @@ class QuizViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+//--------------------------------------------------------------
 //BottomSheet to display the answer is not selected
 
   void showBottomSheetNotSelected() {
     _bottomSheetService.showBottomSheet(title: 'Choose an answer');
   }
 
-//BottomSheet to display the answer is correct or not
-  void showBottomSheet(bool answer, String rightanswer) {
-    _bottomSheetService.showCustomSheet(
-        variant: BottomSheetType.notice,
-        description: 'Description',
-        title: 'Answer',
-        isScrollControlled: true,
-        barrierDismissible: true,
-        data: answer,
-        customData: rightanswer);
-  }
-
+//--------------------------------------------------------------
   String rightanswer = '';
   //write a function to return the string of the right answer
   void getrightanswer() {
@@ -87,6 +79,7 @@ class QuizViewModel extends BaseViewModel {
     }
   }
 
+//--------------------------------------------------------------
   //Function to go to the next question
   void nextquestion() {
     if (questionIndex < questions.length) {
@@ -97,6 +90,7 @@ class QuizViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+//--------------------------------------------------------------
   void navigateToHome() {
     _navigationService.replaceWith(Routes.homeView);
   }
