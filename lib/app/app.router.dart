@@ -160,8 +160,10 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i9.QuizView: (data) {
+      final args = data.getArgs<QuizViewArguments>(nullOk: false);
       return _i13.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i9.QuizView(),
+        builder: (context) =>
+            _i9.QuizView(key: args.key, questions: args.questions),
         settings: data,
         maintainState: false,
       );
@@ -208,6 +210,22 @@ class MarkdownViewArguments {
   @override
   String toString() {
     return '{"key": "$key", "markData": "$markData"}';
+  }
+}
+
+class QuizViewArguments {
+  const QuizViewArguments({
+    this.key,
+    required this.questions,
+  });
+
+  final _i13.Key? key;
+
+  final List<Map<String, dynamic>> questions;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "questions": "$questions"}';
   }
 }
 
@@ -313,14 +331,17 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToQuizView([
+  Future<dynamic> navigateToQuizView({
+    _i13.Key? key,
+    required List<Map<String, dynamic>> questions,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.quizView,
+        arguments: QuizViewArguments(key: key, questions: questions),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -470,14 +491,17 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithQuizView([
+  Future<dynamic> replaceWithQuizView({
+    _i13.Key? key,
+    required List<Map<String, dynamic>> questions,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.quizView,
+        arguments: QuizViewArguments(key: key, questions: questions),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
