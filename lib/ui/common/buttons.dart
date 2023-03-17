@@ -1,5 +1,7 @@
 import 'package:app/enums/button_type.dart';
 import 'package:app/file_exporter.dart';
+import 'package:app/ui/views/home/home_view.dart';
+import 'package:app/ui/views/home/home_viewmodel.dart';
 
 class ReUsedBtn extends StatelessWidget {
   ReUsedBtn({
@@ -53,5 +55,140 @@ class ReUsedBtn extends StatelessWidget {
       ),
       onTap: () => onClickAction(),
     );
+  }
+}
+
+class LockedIcon extends StatelessWidget {
+  const LockedIcon({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(5),
+                topLeft: Radius.circular(5),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+          ),
+          height: 80,
+          width: 82,
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 10, left: 14, right: 3),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(5),
+                topLeft: Radius.circular(5),
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25)),
+          ),
+          height: 70,
+          width: 70,
+          child: const Icon(
+            Icons.lock,
+            size: 50,
+          ),
+        ),
+      ),
+    ]);
+  }
+}
+
+class BronzeIcon extends StatelessWidget {
+  const BronzeIcon({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color.fromARGB(255, 120, 111, 27),
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(5),
+                topLeft: Radius.circular(5),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+          ),
+          height: 80,
+          width: 82,
+        ),
+      ),
+      Padding(
+          padding: const EdgeInsets.only(top: 10, left: 14, right: 3),
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 248, 110, 60),
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(5),
+                  topLeft: Radius.circular(5),
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25)),
+            ),
+            height: 70,
+            width: 70,
+            child: Icon(Icons.star, size: 50, color: Colors.white24),
+          )),
+    ]);
+  }
+}
+
+class BottomNavigationWidget extends StatefulWidget {
+  BottomNavigationWidget({super.key, required this.currentindex});
+
+  int currentindex = 0;
+
+  @override
+  State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
+}
+
+class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+        backgroundColor: scaffoldBackgroundColor,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: widget.currentindex,
+        items: [
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.home),
+                onPressed: () {
+                  HomeViewModel().navigatetoHome();
+                }),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.score),
+                onPressed: () => HomeViewModel().navigatetoScore()),
+            label: 'ScoreBoard',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.work),
+                onPressed: () {
+                  HomeViewModel().navigatetoJobs();
+                }),
+            label: 'Jobs',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                icon: const Icon(Icons.person),
+                onPressed: () {
+                  HomeViewModel().navigatetoProfile();
+                }),
+            label: 'Profile',
+          ),
+        ]);
   }
 }

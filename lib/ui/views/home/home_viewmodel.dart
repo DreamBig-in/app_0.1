@@ -65,10 +65,16 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void navigatetoHome() {
-    _navigationService.replaceWith(Routes.homeView);
+    _navigationService.replaceWithHomeView();
   }
 
-  void navigatetoScore() {}
+  void navigatetoScore() {
+    _navigationService.replaceWith(Routes.scoreboardView);
+  }
+
+  void navigatetoJobs() {
+    _navigationService.replaceWith(Routes.recruitmentView);
+  }
 
   void launchReplitApp() {
     // TODO: Should move to replit.

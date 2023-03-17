@@ -4,7 +4,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../app/app.locator.dart';
 import '../../../app/app.router.dart';
 
-class ScoreboardViewModel extends BaseViewModel {
+class RecruitmentViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
   void navigatetoProfile() {

@@ -16,6 +16,7 @@ import 'package:app/ui/views/options_on_boarding/options_on_boarding_view.dart'
     as _i13;
 import 'package:app/ui/views/profile/profile_view.dart' as _i8;
 import 'package:app/ui/views/quiz/quiz_view.dart' as _i9;
+import 'package:app/ui/views/recruitment/recruitment_view.dart' as _i14;
 import 'package:app/ui/views/scoreboard/scoreboard_view.dart' as _i11;
 import 'package:app/ui/views/slider/slider_view.dart' as _i12;
 import 'package:app/ui/views/startup/startup_view.dart' as _i3;
@@ -50,6 +51,7 @@ class Routes {
   static const optionsOnBoardingView = '/options-on-boarding-view';
 
   static const chatgptView = '/chatgpt-view';
+  static const recruitmentView = '/recruitment-view';
 
   static const all = <String>{
     homeView,
@@ -65,6 +67,7 @@ class Routes {
     sliderView,
     optionsOnBoardingView,
     chatgptView,
+    recruitmentView,
   };
 }
 
@@ -121,6 +124,8 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.chatgptView,
       page: _i14.ChatgptView,
+      Routes.recruitmentView,
+      page: _i14.RecruitmentView,
     ),
   ];
 
@@ -218,6 +223,9 @@ class StackedRouter extends _i1.RouterBase {
     _i14.ChatgptView: (data) {
       return _i15.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.ChatgptView(),
+    _i14.RecruitmentView: (data) {
+      return _i15.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i14.RecruitmentView(),
         settings: data,
         maintainState: false,
       );
@@ -457,6 +465,7 @@ extension NavigatorStateExtension on _i16.NavigationService {
   }
 
   Future<dynamic> navigateToChatgptView([
+  Future<dynamic> navigateToRecruitmentView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -464,6 +473,7 @@ extension NavigatorStateExtension on _i16.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.chatgptView,
+    return navigateTo<dynamic>(Routes.recruitmentView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -648,6 +658,7 @@ extension NavigatorStateExtension on _i16.NavigationService {
   }
 
   Future<dynamic> replaceWithChatgptView([
+  Future<dynamic> replaceWithRecruitmentView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -655,6 +666,7 @@ extension NavigatorStateExtension on _i16.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.chatgptView,
+    return replaceWith<dynamic>(Routes.recruitmentView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
