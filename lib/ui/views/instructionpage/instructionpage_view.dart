@@ -6,6 +6,7 @@ import 'package:app/ui/common/buttons.dart';
 import 'package:app/ui/views/home/home_viewmodel.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../../common/mock_data.dart';
 import 'instructionpage_viewmodel.dart';
 import 'package:rive/rive.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -80,7 +81,8 @@ class InstructionpageView extends StackedView<InstructionpageViewModel> {
           ReUsedBtn(
             title: "Get Started",
             onClickAction: () {
-              locator<NavigationService>().replaceWith(Routes.sliderView);
+              locator<NavigationService>().replaceWithOptionsOnBoardingView(
+                  content: [techStack, androidTech]);
             },
             buttonType: ButtonType.success,
           ),

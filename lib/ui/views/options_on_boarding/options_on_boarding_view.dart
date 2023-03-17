@@ -107,7 +107,7 @@ class OptionsOnBoardingView extends StackedView<OptionsOnBoardingViewModel> {
                         print(viewModel.currentIndex1);
                         if (viewModel.currentIndex1 + 1 == content.length) {
                           log("message");
-                          viewModel.naigatetoQuizScreen();
+                          viewModel.navigateToslider();
                         }
                         if (content[viewModel.currentIndex1]["option"]
                                 [viewModel.selectedoptions]["redirectTo"] ==

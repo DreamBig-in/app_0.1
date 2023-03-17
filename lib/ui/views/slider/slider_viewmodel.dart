@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:app/app/app.locator.dart';
 import 'package:app/app/app.router.dart';
 import 'package:app/ui/common/mock_data.dart';
@@ -18,17 +16,7 @@ class SliderViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void navigateToHomeScreen() {
-    print("navigate to home screen");
-    _navigationService.replaceWith(Routes.homeView);
-  }
-
   void navigateToQuiz() {
     _navigationService.replaceWithQuizView(questions: onboardingquiz);
-  }
-
-  void navigateToOptionsOnBoarding() {
-    _navigationService
-        .replaceWithOptionsOnBoardingView(content: [techStack, androidTech]);
   }
 }
