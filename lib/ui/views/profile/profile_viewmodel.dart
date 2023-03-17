@@ -18,4 +18,9 @@ class ProfileViewModel extends BaseViewModel {
     await prefs.clear();
     _navigationService.replaceWith(Routes.loginView);
   }
+
+  void navigateToRecruitmentScreen() {
+    print("navigate to recruitment screen");
+    _navigationService.replaceWith(Routes.recruitmentView);
+  }
 }
