@@ -70,7 +70,9 @@ class LoginViewModel extends BaseViewModel {
   }
 
   void navigateForGetStarted() {
-    // _navigationService.replaceWith(Routes.instructionpageView);
-    _navigationService.replaceWith(Routes.chatgptView);
+    _navigationService.replaceWith(Routes.instructionpageView);
+
+    // TODO: Testing purpose only
+    // _navigationService.replaceWith(Routes.chatgptView);
   }
 }

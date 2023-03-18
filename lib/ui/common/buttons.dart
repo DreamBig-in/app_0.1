@@ -169,13 +169,19 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           ),
           BottomNavigationBarItem(
             icon: IconButton(
-                icon: const Icon(Icons.score),
+                icon: Image.asset(
+                  "assets/images/shield.png",
+                  scale: 1,
+                ),
                 onPressed: () => HomeViewModel().navigatetoScore()),
             label: 'ScoreBoard',
           ),
           BottomNavigationBarItem(
             icon: IconButton(
-                icon: const Icon(Icons.work),
+                icon: Image.asset(
+                  "assets/images/job.png",
+                  scale: 1,
+                ),
                 onPressed: () {
                   HomeViewModel().navigatetoJobs();
                 }),
@@ -194,7 +200,10 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           ),
           BottomNavigationBarItem(
             icon: IconButton(
-                icon: const Icon(Icons.person),
+                icon: Image.asset(
+                  "assets/images/profile.png",
+                  scale: 1,
+                ),
                 onPressed: () {
                   HomeViewModel().navigatetoProfile();
                 }),

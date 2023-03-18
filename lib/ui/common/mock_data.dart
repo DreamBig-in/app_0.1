@@ -325,3 +325,8 @@ const List<Map<String, dynamic>> scoreboard = [
     'score': 50,
   },
 ];
+
+List<String> chatGPTQuestion = [
+  "what is the difference between stateless and statefull widget",
+  "Ask me question to test my flutter knowledge in MCQ format with answer"
+];

@@ -1,5 +1,6 @@
 import 'package:app/app/app.dart';
 import 'package:app/ui/common/app_colors.dart';
+import 'package:app/ui/common/mock_data.dart';
 import 'package:app/ui/views/home/home_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -45,18 +46,18 @@ class ChatgptView extends StackedView<ChatgptViewModel> {
                   itemCount: viewModel.messages.length,
                   itemBuilder: (context, index) {
                     debugPrint(index.toString());
-                    debugPrint(viewModel
-                        .messages[viewModel.messages.length - 1 - index]);
-                    return (index == 0 &&
+                    debugPrint((index == 0 &&
                             index % 2 != 0 &&
                             viewModel.messages.length % 2 == 0)
+                        .toString());
+                    return (index == 0 && viewModel.messages.length % 2 == 0)
                         ? AnimatedTextKit(totalRepeatCount: 1, animatedTexts: [
                             TypewriterAnimatedText(
-                                viewModel.messages[
-                                    viewModel.messages.length - 1 - index],
-                                textAlign: TextAlign.left,
-                                textStyle: const TextStyle(fontSize: 15),
-                                speed: const Duration(milliseconds: 40)),
+                              viewModel.messages[
+                                  viewModel.messages.length - 1 - index],
+                              textAlign: TextAlign.left,
+                              speed: const Duration(milliseconds: 40),
+                            ),
                           ])
                         : Container(
                             margin: (index % 2 == 0)
@@ -65,7 +66,8 @@ class ChatgptView extends StackedView<ChatgptViewModel> {
                             child: Text(
                               viewModel.messages[
                                   viewModel.messages.length - 1 - index],
-                              textAlign: (index % 2 == 0)
+                              textAlign: (index % 2 == 0 &&
+                                      viewModel.messages.length % 2 == 0)
                                   ? TextAlign.left
                                   : TextAlign.right,
                             ),
@@ -80,54 +82,32 @@ class ChatgptView extends StackedView<ChatgptViewModel> {
                       const Spacer(
                         flex: 1,
                       ),
-                      Container(
+                      SizedBox(
                           height: 60,
-                          child: ListView(
+                          child: ListView.builder(
+                            itemCount: chatGPTQuestion.length,
                             scrollDirection: Axis.horizontal,
-                            children: [
-                              Container(
-                                constraints: const BoxConstraints(
-                                    minWidth: 100, maxWidth: 500),
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 5),
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: const Color(0xff1f2c34)),
-                                child: const Text(
-                                  "Take my Quiz now",
-                                  style: TextStyle(color: Color(0xffe6e9ef)),
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () => viewModel
+                                    .handleSubmitted(chatGPTQuestion[index]),
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 100, maxWidth: 500),
+                                  margin: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 5),
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: const Color(0xff1f2c34)),
+                                  child: Text(
+                                    chatGPTQuestion[index],
+                                    style: const TextStyle(
+                                        color: Color(0xffe6e9ef)),
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                constraints: const BoxConstraints(
-                                    minWidth: 100, maxWidth: 500),
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 5),
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: const Color(0xff1f2c34)),
-                                child: const Text(
-                                  "Take my Quiz now",
-                                  style: TextStyle(color: Color(0xffe6e9ef)),
-                                ),
-                              ),
-                              Container(
-                                constraints: const BoxConstraints(
-                                    minWidth: 100, maxWidth: 500),
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 5),
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: const Color(0xff1f2c34)),
-                                child: const Text(
-                                  "Take my Quiz now",
-                                  style: TextStyle(color: Color(0xffe6e9ef)),
-                                ),
-                              ),
-                            ],
+                              );
+                            },
                           )),
                       SizedBox(
                           child: Row(children: [
