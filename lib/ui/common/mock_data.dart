@@ -329,4 +329,66 @@ const List<Map<String, dynamic>> scoreboard = [
 List<String> chatGPTQuestion = [
   "what is the difference between stateless and statefull widget",
   "Ask me question to test my flutter knowledge in MCQ format with answer"
+
+const List<Map<String, dynamic>> topCompany = [
+  {
+    'name': "TVS",
+    'vacancy': "20 Job Vacancy",
+    'img':
+        'https://www.tvsmotor.com/-/media/Feature/Header/tvs-logo.png?h=28&w=153&la=en&hash=81FC665387EC969333303505CD210311',
+    'salary': '\$2k-5k/Mo',
+  },
+  {
+    'name': "Solona",
+    'vacancy': "10 Job Vacancy",
+    'img':
+        'https://hack-overflow.tech/static/media/solanaWhite.1148ac0688f5e8cc8c87.png',
+    'salary': '\$1k-3k/Mo',
+  },
+  {
+    'name': "Polygon",
+    'vacancy': "15 Job Vacancy",
+    'img':
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KpHnWBS7Bd_y7VIKpcYo5AHaHa%26pid%3DApi&f=1&ipt=2100463c16ee8585bf209cd1cc1dc72e94af50efac72f049fc7ac8c5c2009a75&ipo=images',
+    'salary': '\$1k-3k/Mo',
+  },
+];
+
+const List<Map<String, dynamic>> suggestedJob = [
+  {
+    'name': "IT Support",
+    'company': "Devfolio",
+    'img':
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F92aad02596384660a3f09b606d311ee7%2Fsponsors%2F15a90b2ff4f74736a9316114d9976f08%2F334.png&f=1&nofb=1&ipt=1ec294ffcf7595367d5a90333f03f7406369d82a2b42135fc32c03db7fe325ce&ipo=images',
+    'location': 'India',
+    'type': "Full Time",
+    'salary': '\$1400',
+  },
+  {
+    'name': "Flutter Developer",
+    'company': "Beeceptor",
+    'img':
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.OH54rjyjK_6_mdqGA5Fn-AAAAA%26pid%3DApi&f=1&ipt=83b2b4707934919434064996b5fd21f94f8262732d1128c4e25f15b98187b421&ipo=images',
+    'location': 'India',
+    'type': "Internship",
+    'salary': '\$1000',
+  },
+  {
+    'name': "Android Developer",
+    'company': "Filecoin",
+    'img':
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.NBxAKV29VdGAc-l8OsPhIgHaHa%26pid%3DApi&f=1&ipt=24fa0629c1e704f2e9c57fbf27751ed83e9e32af9699de8f70e80216b740a571&ipo=images',
+    'location': 'UK',
+    'type': "Internship",
+    'salary': '\$950',
+  },
+  {
+    'name': "SDE",
+    'company': "Google",
+    'img':
+        'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png&f=1&nofb=1&ipt=9ad23443de4e0304ba042e15c1b7411ece9129d487460f5244dcf7383e6644ed&ipo=images',
+    'location': 'US',
+    'type': "Internship",
+    'salary': '\$1500',
+  },
 ];

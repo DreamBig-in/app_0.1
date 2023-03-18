@@ -23,15 +23,34 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Scoreboard 🏆',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold)),
+              ),
+            ),
+            const Divider(
+              color: Colors.white54,
+              thickness: 2,
+            ),
             SizedBox(
-                height: 150,
+                height: 120,
                 width: double.infinity,
                 child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
                       children: const [
                         BronzeIcon(),
+                        LockedIcon(),
+                        LockedIcon(),
+                        LockedIcon(),
+                        LockedIcon(),
                         LockedIcon(),
                         LockedIcon(),
                       ],
@@ -50,12 +69,19 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
                   .titleMedium!
                   .copyWith(color: Colors.amber),
             ),
+            Text(
+              '7🔥',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: Colors.amber),
+            ),
             const Divider(
               color: Colors.white54,
               thickness: 2,
             ),
             Container(
-                height: 450,
+                height: 420,
                 width: double.infinity,
                 color: scaffoldBackgroundColor,
                 child: ListView.builder(
@@ -77,12 +103,12 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
                                           .titleLarge!
                                           .copyWith(color: Colors.white),
                                     ),
-                                    horizontalSpaceTiny,
+                                    horizontalSpaceMedium,
                                     const CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      radius: 25,
+                                      backgroundColor: Colors.amber,
+                                      radius: 20,
                                       child: Icon(
-                                        Icons.person,
+                                        Icons.catching_pokemon,
                                         size: 30,
                                       ),
                                     ),
@@ -99,7 +125,7 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
                                       scoreboard[index]['score'].toString(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6!
+                                          .titleLarge!
                                           .copyWith(color: Colors.white),
                                     ),
                                     horizontalSpaceTiny,
@@ -107,13 +133,13 @@ class ScoreboardView extends StackedView<ScoreboardViewModel> {
                                       "points",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6!
+                                          .titleLarge!
                                           .copyWith(color: Colors.white),
                                     ),
                                   ],
                                 ),
                               ),
-                              Divider(
+                              const Divider(
                                 color: Colors.white10,
                                 thickness: 1,
                               )

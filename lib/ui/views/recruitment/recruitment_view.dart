@@ -1,4 +1,5 @@
 import 'package:app/ui/common/app_colors.dart';
+import 'package:app/ui/common/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -40,7 +41,7 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                               color: const Color.fromARGB(255, 77, 76, 76)),
                           borderRadius: BorderRadius.circular(10)),
                       width: 180,
-                      child: const Center(child: Text("Programming")),
+                      child: Center(child: Text(viewModel.domain[index])),
                     ),
                   );
                 },
@@ -73,7 +74,7 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                     // color: Colors.black12,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 4,
+                      itemCount: 3,
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -99,26 +100,28 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                               height: 50,
                                               width: 50,
                                               decoration: BoxDecoration(
-                                                  color: Colors.amber,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10)),
+                                                // color: Colors.amber,
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              child: Image.network(
+                                                  topCompany[index]['img']),
                                             ),
                                           ),
                                           SizedBox(
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              children: const [
+                                              children: [
                                                 Text(
-                                                  "TVS",
+                                                  topCompany[index]['name'],
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.w500),
                                                 ),
                                                 Text(
-                                                  "20 Job Vacancy",
+                                                  topCompany[index]['vacancy'],
                                                   style: TextStyle(
                                                       color: Color.fromARGB(
                                                           221, 216, 214, 214)),
@@ -129,11 +132,11 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                         ],
                                       ),
                                     ),
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.symmetric(
                                           vertical: 3.0, horizontal: 10),
                                       child: Text(
-                                        "Salary : \$2k-5k/Mo",
+                                        topCompany[index]['salary'],
                                         style: TextStyle(
                                             color: Color.fromARGB(
                                                 221, 216, 214, 214)),
@@ -219,16 +222,18 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                     height: 60,
                                     width: 60,
                                     decoration: BoxDecoration(
-                                        color: Colors.amber,
+                                        // color: Colors.amber,
                                         borderRadius:
                                             BorderRadius.circular(10)),
+                                    child: Image.network(
+                                        suggestedJob[index]['img']),
                                   ),
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
+                                  children: [
                                     Text(
-                                      "IT Support",
+                                      suggestedJob[index]['name'],
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w500),
@@ -237,7 +242,7 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                       padding:
                                           EdgeInsets.symmetric(vertical: 8.0),
                                       child: Text(
-                                        "Tumblir",
+                                        suggestedJob[index]['company'],
                                         style: TextStyle(
                                             color: Color.fromARGB(
                                                 221, 216, 214, 214)),
@@ -246,11 +251,11 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                   ],
                                 ),
                                 const Spacer(),
-                                const Padding(
+                                Padding(
                                   padding:
                                       EdgeInsets.symmetric(horizontal: 20.0),
                                   child: Text(
-                                    "\$1500/Mo",
+                                    suggestedJob[index]['salary'],
                                     style: TextStyle(
                                         fontSize: 20,
                                         color: Color.fromRGBO(
@@ -265,7 +270,7 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                               padding:
                                   const EdgeInsets.symmetric(vertical: 10.0),
                               child: Row(
-                                children: const [
+                                children: [
                                   SizedBox(
                                     width: 10,
                                   ),
@@ -274,7 +279,7 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                     color: Color.fromARGB(221, 216, 214, 214),
                                   ),
                                   Text(
-                                    "Cinere",
+                                    suggestedJob[index]['location'],
                                     style: TextStyle(
                                         color:
                                             Color.fromARGB(221, 216, 214, 214)),
@@ -287,7 +292,7 @@ class RecruitmentView extends StackedView<RecruitmentViewModel> {
                                     color: Color.fromARGB(221, 216, 214, 214),
                                   ),
                                   Text(
-                                    "Internship",
+                                    suggestedJob[index]['type'],
                                     style: TextStyle(
                                         color:
                                             Color.fromARGB(221, 216, 214, 214)),

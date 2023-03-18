@@ -5,6 +5,15 @@ import '../../../app/app.locator.dart';
 import '../../../app/app.router.dart';
 
 class RecruitmentViewModel extends BaseViewModel {
+  List domain = [
+    "Programming",
+    "Data Science",
+    "Big Data Analysis",
+    "Cyber Security"
+  ];
+
+  List topCompany = [];
+
   final _navigationService = locator<NavigationService>();
 
   void navigatetoProfile() {
