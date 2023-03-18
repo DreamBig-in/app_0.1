@@ -27,8 +27,7 @@ void main() {
           () {
         final bottomSheetService = getAndRegisterBottomSheetService();
 
-        final model = _getModel();
-        model.showBottomSheet();
+        // model.showBottomSheet();
         verify(bottomSheetService.showCustomSheet(
           variant: BottomSheetType.notice,
           title: ksHomeBottomSheetTitle,

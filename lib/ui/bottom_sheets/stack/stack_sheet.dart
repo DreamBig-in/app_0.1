@@ -2,7 +2,6 @@ import 'package:app/ui/common/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:app/ui/common/app_colors.dart';
 import 'package:app/ui/common/ui_helpers.dart';
-import 'package:flutter/rendering.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 // TODO: Explore the completer fuction and how it works and implement it later
