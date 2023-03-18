@@ -344,7 +344,7 @@ const List<Map<String, dynamic>> topCompany = [
     'name': "Polygon",
     'vacancy': "15 Job Vacancy",
     'img':
-        'https://assets-global.website-files.com/637359c81e22b715cec245ad/63dc31f8817a4a509d7635a7_Logo.svg',
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KpHnWBS7Bd_y7VIKpcYo5AHaHa%26pid%3DApi&f=1&ipt=2100463c16ee8585bf209cd1cc1dc72e94af50efac72f049fc7ac8c5c2009a75&ipo=images',
     'salary': '\$1k-3k/Mo',
   },
 ];
